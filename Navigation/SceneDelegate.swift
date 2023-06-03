@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Navigation
 //
-//  Created by Stas Kupriyanov on 03.06.2023.
+//  Created by Stas Kupriyanov on 09.04.2023.
 //
 
 import UIKit
