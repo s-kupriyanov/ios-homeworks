@@ -7,45 +7,46 @@
 
 import UIKit
 
-// Добавьте в группу Profile новый файл ProfileViewController.swift, в этом файле создайте одноименный класс-наследник UIViewController.
-
 class ProfileViewController: UIViewController {
-    
-    // lazy var navigationBarHeight = Float(self.navigationController!.navigationBar.frame.size.height)
-    
-    // Создайте экземпляр класса ProfileHeaderView в классе ProfileViewController
-    
-    let profileHeaderView = ProfileHeaderView()
 
+    private let profileHeaderView: ProfileHeaderView = {
+        let view = ProfileHeaderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var buttonBottom: UIButton = {
+        let button = UIButton()
+        button.setTitle("Button", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        // Установите .lightGray в качестве backgroundColor в коде для ProfileViewController, запустите проект и убедитесь, что при переходе на таб Profile цвет бэкграунда изменился на серый.
-        
         view.backgroundColor = .lightGray
-        
-        // Экземпляр класса ProfileHeaderView добавьте в качестве subview
+        setupProfileHeaderView()
+    }
+    
+    private func setupProfileHeaderView() {
+        let safeAreaGuide = view.safeAreaLayoutGuide
         
         view.addSubview(profileHeaderView)
+        view.addSubview(buttonBottom)
         
+        NSLayoutConstraint.activate([
+            profileHeaderView.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor),
+            profileHeaderView.leftAnchor.constraint(equalTo: safeAreaGuide.leftAnchor),
+            profileHeaderView.rightAnchor.constraint (equalTo: safeAreaGuide.rightAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
+            
+            buttonBottom.leftAnchor.constraint(equalTo: view.leftAnchor),
+            buttonBottom.rightAnchor.constraint(equalTo: view.rightAnchor),
+            buttonBottom.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor),
+            buttonBottom.heightAnchor.constraint(equalToConstant: 50.0),
+        ])
     }
-    
-    // В методе viewWillLayoutSubviews() задайте ProfileHeaderView frame, равный frame корневого view.
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        profileHeaderView.frame = view.frame
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
