@@ -7,48 +7,41 @@
 
 import UIKit
 
-// Добавьте в группу Profile новый файл ProfileHeaderView.swift, в этом файле создайте одноименный класс-наследник UIView.
-
 final class ProfileHeaderView: UIView {
     
-    // Перейдите в файл ProfileHeaderView и, следуя макету, добавьте необходимые UI-элементы в качестве подпредставлений и установите для них нужные параметры. Ваш экран Profile должен в точности повторять макет
-    
-    let avatarImage: UIImageView = {
-        
-        let avatarImage = UIImageView(frame: CGRect(x: 16, y: 120, width: 120, height: 120))
-        
+    private lazy var avatarImage: UIImageView = {
+        let avatarImage = UIImageView()
         avatarImage.image = UIImage(named: "avatarImage")
         avatarImage.layer.masksToBounds = true
         avatarImage.layer.cornerRadius = 60
         avatarImage.layer.borderWidth = 3
         avatarImage.layer.borderColor = UIColor.white.cgColor
-        
+        avatarImage.translatesAutoresizingMaskIntoConstraints = false
         return avatarImage
     }()
-    
-    lazy var fullNameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: avatarImage.frame.maxX + 10, y: 120, width: 100, height: 20))
+
+     private lazy var fullNameLabel: UILabel = {
+        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
         label.text = "Hipster Cat"
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    lazy var statusLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: avatarImage.frame.maxX + 10, y: fullNameLabel.frame.maxY + 16, width: 100, height: 20))
+
+    private lazy var statusLabel: UILabel = {
+        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
         label.text = "Waiting for something..."
         label.numberOfLines = 0
-
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    // Добавьте экземпляр класса UITextField в класс ProfileHeaderView, выполните необходимые настройки согласно макету
-    
-    lazy var inputText: UITextField = {
-        let inputText = UITextField(frame: CGRect(x: avatarImage.frame.maxX + 10, y: statusLabel.frame.maxY + 16, width: UIScreen.main.bounds.width - statusLabel.frame.minX - 16, height: 40))
+
+    private lazy var inputText: UITextField = {
+        let inputText = UITextField()
         inputText.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         inputText.textColor = .black
         inputText.layer.cornerRadius = 12
@@ -57,12 +50,12 @@ final class ProfileHeaderView: UIView {
         inputText.layer.borderColor = UIColor.black.cgColor
         inputText.placeholder = "Введите статус"
         inputText.clearButtonMode = .whileEditing
-        
+        inputText.translatesAutoresizingMaskIntoConstraints = false
         return inputText
     }()
-    
-    lazy var buttonShowStatus: UIButton = {
-        let button = UIButton(frame: CGRect(x: 16, y: avatarImage.frame.maxY + 10, width: UIScreen.main.bounds.width - 32, height: 50))
+
+    private lazy var buttonShowStatus: UIButton = {
+        let button = UIButton()
         button.setTitle("Show status", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .blue
@@ -71,43 +64,34 @@ final class ProfileHeaderView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
-
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    // Добавьте обработку нажатия по кнопке addTarget, UIEvent выбрать .touchUpInside
-    
     private func buttonTarget() {
-        buttonShowStatus.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        buttonShowStatus.addTarget(
+            self,
+            action: #selector(buttonPressed),
+            for: .touchUpInside
+        )
     }
-    
-    // Добавьте функцию, которую будет принимать обработчик, например, @objc func buttonPressed()
-    
-    @objc func buttonPressed() {
-        // Функция должна выводить в консоль текст из поля «статус»
-        print(statusLabel.text ?? "Нет статуса")
-        
+
+    @objc func buttonPressed(_ sender: UIButton) {
+        guard inputText.text?.isEmpty == false else { return }
         statusLabel.text = inputText.text
-        
     }
-    
-    // Добавьте обработку изменения введённого текста при помощи addTarget, UIEvent выбрать .editingChanged
-    
+
     private func inputTarget() {
-        inputText.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        inputText.addTarget(
+            self,
+            action: #selector(statusTextChanged),
+            for: .editingChanged
+        )
     }
-    
-    // Добавьте функцию, которую будет принимать обработчик
-    
-    
+
     @objc func statusTextChanged(_ textField: UITextField) {
-        
         _ = textField.text ?? ""
     }
-    
-    // Добавьте приватную переменную statusText с типом данных String
-    
-    // private var statusText: String
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -120,12 +104,89 @@ final class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    private func setupUI() {
         addSubview(avatarImage)
         addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(inputText)
         addSubview(buttonShowStatus)
+        
+        NSLayoutConstraint.activate(
+            [
+                avatarImage.topAnchor.constraint(
+                    equalTo: self.topAnchor,
+                    constant: 16
+                ),
+                avatarImage.leftAnchor.constraint(
+                    equalTo: self.leftAnchor,
+                    constant: 16
+                ),
+                avatarImage.heightAnchor.constraint(
+                    equalToConstant: 120.0
+                ),
+                avatarImage.widthAnchor.constraint(
+                    equalToConstant: 120.0
+                ),
+                
+                fullNameLabel.topAnchor.constraint(
+                    equalTo: self.topAnchor,
+                    constant: 27
+                ),
+                fullNameLabel.leftAnchor.constraint(
+                    equalTo: avatarImage.rightAnchor,
+                    constant: 16
+                ),
+                fullNameLabel.rightAnchor.constraint(
+                    equalTo: self.rightAnchor,
+                    constant: -16
+                ),
+                
+                statusLabel.topAnchor.constraint(
+                    equalTo: fullNameLabel.bottomAnchor,
+                    constant: 10
+                ),
+                statusLabel.leftAnchor.constraint(
+                    equalTo: avatarImage.rightAnchor,
+                    constant: 16
+                ),
+                statusLabel.rightAnchor.constraint(
+                    equalTo: self.rightAnchor,
+                    constant: -16
+                ),
+                
+                inputText.topAnchor.constraint(
+                    equalTo: statusLabel.bottomAnchor,
+                    constant: 10
+                ),
+                inputText.leftAnchor.constraint(
+                    equalTo: avatarImage.rightAnchor,
+                    constant: 16
+                ),
+                inputText.rightAnchor.constraint(
+                    equalTo: self.rightAnchor,
+                    constant: -16
+                ),
+                inputText.heightAnchor.constraint(
+                    equalToConstant: 40.0
+                ),
+                
+                buttonShowStatus.topAnchor.constraint(
+                    equalTo: avatarImage.bottomAnchor,
+                    constant: 16
+                ),
+                buttonShowStatus.leftAnchor.constraint(
+                    equalTo: self.leftAnchor,
+                    constant: 16
+                ),
+                buttonShowStatus.rightAnchor.constraint(
+                    equalTo: self.rightAnchor,
+                    constant: -16
+                ),
+                buttonShowStatus.heightAnchor.constraint(
+                    equalToConstant: 50.0
+                ),
+            ]
+        )
     }
     
 }
