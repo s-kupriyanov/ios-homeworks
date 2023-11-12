@@ -22,13 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let feedViewController = FeedViewController()
         feedViewController.navigationItem.title = "Лента пользователя"
         
-        let profileViewController = ProfileViewController()
+        let profileViewController = LogInViewController()
         profileViewController.navigationItem.title = "Профиль пользователя"
         
         let tabBarController = UITabBarController()
         
         feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(named: "IconFeed"), tag: 0)
         profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "IconProfile"), tag: 1)
+        //profileViewController.tabBarItem.badgeColor = UIColor(named: "newBlue")
         
         let controllers = [feedViewController, profileViewController]
         
