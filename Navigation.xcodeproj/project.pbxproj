@@ -17,6 +17,7 @@
 		48CB863A29E497D200816583 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB863929E497D200816583 /* PostViewController.swift */; };
 		48CB863C29E49A3400816583 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB863B29E49A3400816583 /* FeedViewController.swift */; };
 		48CB863E29E49A4D00816583 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB863D29E49A4D00816583 /* ProfileViewController.swift */; };
+		48DFEF432AFEDE3700809EF2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEF422AFEDE3700809EF2 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		48CB863929E497D200816583 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		48CB863B29E49A3400816583 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		48CB863D29E49A4D00816583 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		48DFEF422AFEDE3700809EF2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				4888B3152AF411A6004FC9B3 /* ProfileHeaderView.swift */,
 				48CB863D29E49A4D00816583 /* ProfileViewController.swift */,
+				48DFEF422AFEDE3700809EF2 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				48CB863E29E49A4D00816583 /* ProfileViewController.swift in Sources */,
 				48CB863A29E497D200816583 /* PostViewController.swift in Sources */,
+				48DFEF432AFEDE3700809EF2 /* LogInViewController.swift in Sources */,
 				485CD92A29E3555800943FD5 /* ViewController.swift in Sources */,
 				48C4EC9629E8175900578E95 /* InfoViewController.swift in Sources */,
 				48CB863C29E49A3400816583 /* FeedViewController.swift in Sources */,
