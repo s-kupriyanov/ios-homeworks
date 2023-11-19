@@ -1,14 +1,14 @@
 //
-//  ProfileViewController.swift
+//  ProfileTableHederView.swift
 //  Navigation
 //
-//  Created by Stas Kupriyanov on 10.04.2023.
+//  Created by Stas Kupriyanov on 18.11.2023.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+class ProfileTableHederView: UIView {
+    
     private let profileHeaderView: ProfileHeaderView = {
         let view = ProfileHeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false

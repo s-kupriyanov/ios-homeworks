@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct Post {
+struct PostOne {
     let title: String
 }
 
 class FeedViewController: UIViewController {
     
-    let postOne = Post(title: "Мой первый пост")
+    let postOne = PostOne(title: "Мой первый пост")
     
     private lazy var buttonOne: UIButton = {
         let button = UIButton()

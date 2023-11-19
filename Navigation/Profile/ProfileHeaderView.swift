@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileHeaderView: UIView {
     
+    static let idHeader = "CustomHeader"
+    
     private lazy var avatarImage: UIImageView = {
         let avatarImage = UIImageView()
         avatarImage.image = UIImage(named: "avatarImage")
@@ -42,6 +44,10 @@ final class ProfileHeaderView: UIView {
 
     private lazy var inputText: UITextField = {
         let inputText = UITextField()
+        inputText.leftViewMode = .always
+        inputText.leftView = UIView(
+            frame: CGRect(x: 0, y: 0, width: 10, height: inputText.frame.height)
+        )
         inputText.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         inputText.textColor = .black
         inputText.layer.cornerRadius = 12
