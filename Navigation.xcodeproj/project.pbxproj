@@ -13,6 +13,8 @@
 		485CD92F29E3555900943FD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485CD92E29E3555900943FD5 /* Assets.xcassets */; };
 		485CD93229E3555900943FD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 485CD93029E3555900943FD5 /* LaunchScreen.storyboard */; };
 		4888B3162AF411A6004FC9B3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888B3152AF411A6004FC9B3 /* ProfileHeaderView.swift */; };
+		488BF0292B08E58200F41465 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF0282B08E58200F41465 /* Post.swift */; };
+		488BF02D2B09379000F41465 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF02C2B09379000F41465 /* PostTableViewCell.swift */; };
 		48C4EC9629E8175900578E95 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C4EC9529E8175900578E95 /* InfoViewController.swift */; };
 		48CB863A29E497D200816583 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB863929E497D200816583 /* PostViewController.swift */; };
 		48CB863C29E49A3400816583 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB863B29E49A3400816583 /* FeedViewController.swift */; };
@@ -29,6 +31,8 @@
 		485CD93129E3555900943FD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		485CD93329E3555900943FD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4888B3152AF411A6004FC9B3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		488BF0282B08E58200F41465 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		488BF02C2B09379000F41465 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		48C4EC9529E8175900578E95 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		48CB863929E497D200816583 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		48CB863B29E49A3400816583 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +54,6 @@
 		485CD91929E3555800943FD5 = {
 			isa = PBXGroup;
 			children = (
-				4888B3142AF41187004FC9B3 /* Profile */,
 				485CD92429E3555800943FD5 /* Navigation */,
 				485CD92329E3555800943FD5 /* Products */,
 			);
@@ -67,6 +70,7 @@
 		485CD92429E3555800943FD5 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4888B3142AF41187004FC9B3 /* Profile */,
 				485CD92529E3555800943FD5 /* AppDelegate.swift */,
 				485CD92729E3555800943FD5 /* SceneDelegate.swift */,
 				485CD92929E3555800943FD5 /* ViewController.swift */,
@@ -86,6 +90,8 @@
 				4888B3152AF411A6004FC9B3 /* ProfileHeaderView.swift */,
 				48CB863D29E49A4D00816583 /* ProfileViewController.swift */,
 				48DFEF422AFEDE3700809EF2 /* LogInViewController.swift */,
+				488BF0282B08E58200F41465 /* Post.swift */,
+				488BF02C2B09379000F41465 /* PostTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488BF02D2B09379000F41465 /* PostTableViewCell.swift in Sources */,
 				48CB863E29E49A4D00816583 /* ProfileViewController.swift in Sources */,
 				48CB863A29E497D200816583 /* PostViewController.swift in Sources */,
 				48DFEF432AFEDE3700809EF2 /* LogInViewController.swift in Sources */,
@@ -169,6 +176,7 @@
 				485CD92629E3555800943FD5 /* AppDelegate.swift in Sources */,
 				485CD92829E3555800943FD5 /* SceneDelegate.swift in Sources */,
 				4888B3162AF411A6004FC9B3 /* ProfileHeaderView.swift in Sources */,
+				488BF0292B08E58200F41465 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
